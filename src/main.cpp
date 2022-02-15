@@ -12,7 +12,7 @@
 
 // Include the required Wire library for I2C<br>
 #include <Wire.h>
-
+#define I2C_SLAVE_LED_ADDRESS  9
 int x ;
 const int brocheanalog = A1; //A1 ; //4;
 void setup() {
@@ -28,7 +28,7 @@ void loop() {
   Serial.println(x);
   
 
-  Wire.beginTransmission(9); // transmit to device #9
+  Wire.beginTransmission(I2C_SLAVE_LED_ADDRESS); // transmit to device #9
   Wire.write(x);              // sends x 
   Wire.endTransmission();    // stop transmitting
  
